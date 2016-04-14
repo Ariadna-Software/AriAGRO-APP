@@ -2,24 +2,24 @@
     'use strict';
 
     angular
-        .module('ariAgroApp.config')
+        .module('ariAgroApp.login')
         .run(appRun);
 
     appRun.$inject = ['routerHelper'];
 
     function appRun(routerHelper) {
-        routerHelper.configureStates(getStates());
+        routerHelper.configureStates(getStates(), '/ini/login');
     }
 
     function getStates() {
         return [{
-            state: 'ini.config',
+            state: 'ini.login',
             config: {
-                url: '/config',
+                url: '/login',
                 views: {
                     'menuContent': {
-                        templateUrl: 'config/config.html',
-                        controller: 'ConfigCtrl'
+                        templateUrl: 'login/login.html',
+                        controller: 'LoginCtrl'
                     }
                 }
             }

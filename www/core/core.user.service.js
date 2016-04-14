@@ -3,9 +3,9 @@
     angular.module('ariAgroApp.core')
         .factory('UserFactory', UserFactory);
 
-    UserFactory.$inject = ['$http', 'LSFactory', 'ConfigFactory', 'Loader'];
+    UserFactory.$inject = ['$http','$state', 'LSFactory', 'ConfigFactory', 'Loader'];
 
-    function UserFactory($http, LSFactory, ConfigFactory, Loader) {
+    function UserFactory($http, $state, LSFactory, ConfigFactory, Loader) {
         var userKey = "user";
 
         var UserAPI = {
@@ -16,13 +16,6 @@
                         "password": params.password
                     }
                 });
-            },
-            getAgente: function(login){
-                return $http.get(ConfigFactory.getConfig().urlApi + '/api/trabajadores',{
-                    params: {
-                        "login": login
-                    }
-                })
             },
             isUser: function() {
                 return this.getUser() === null ? false : true;
@@ -36,6 +29,22 @@
             logout: function() {
                 LSFactory.set(userKey, null);
                 return null;
+            },
+            userControl: function() {
+                // comprobar que hay una configuración correcta.
+                var config = ConfigFactory.getConfig();
+                if (!config) {
+                    // si no hay configuración nos vamos a confg
+                    Loader.toggleLoadingWithMessage("Debe configurar la aplicación.");
+                    $state.go('ini.config');
+                }
+                if (!this.isUser()) {
+                    // No hay un usuario logado
+                    Loader.toggleLoadingWithMessage("Debe entrar con un usuario");
+                    $state.go('ini.login');
+                }
+                var user = this.getUser();
+                return user;
             }
 
         };

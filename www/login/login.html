@@ -1,0 +1,68 @@
+<ion-view view-title="LOGIN">
+    <ion-nav-buttons side="right">
+        <a class="button" href="#/ini/inicio">
+            <i class="icon ion-home"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <div class="lis card">
+            <div class="item text-center">
+                <h2>VERSION: {{version}}</h2>
+            </div>
+        </div>
+        <form name="loginForm" novalidate="">
+            <div class="list card" ng-hide="isUser">
+                <div class="item item-divider item-assertive">
+                    <i class="icon ion-locked"></i> Identificacion
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">Usuario:</span>
+                    <input type="text" name="usuario" ng-model="loginData.login" required>
+                </label>
+                <div ng-show="hayErrores" ng-messages="loginForm.usuario.$error" role="alert">
+                    <div class="error" ng-message="required">
+                        <i class="ion-information-circled"></i> Este campo es requerido
+                    </div>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">Contraseña:</span>
+                    <input type="password" name="password" ng-model="loginData.password" required>
+                </label>
+                <div ng-show="hayErrores" ng-messages="loginForm.password.$error" role="alert">
+                    <div class="error" ng-message="required">
+                        <i class="ion-information-circled"></i> Este campo es requerido
+                    </div>
+                </div>
+                <div class="error-container" ng-show="loginForm.password.$error" ng-messages="loginForm.password.$error">
+                    <div ng-messages-include="error-list.html"></div>
+                </div>
+                <div class="item item-body">
+                    <div class="text-center">
+                        <button class="button" ng-click="login(loginForm)">
+                            <i class="icon ion-log-in"></i> Entrar
+                        </button>
+                        <a class="button" href="#/ini/config">
+                            <i class="icon ion-ios-gear"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="list card" ng-show="isUser">
+            <div class="item item-divider item-balanced"><i class="icon ion-unlocked"></i> Usuario actual</div>
+            <div class="item item-avatar">
+                <h2>USUARIO: {{user.nomsocio}}</h2>
+            </div>
+            <div class="item item-body text-center">
+                <div>
+                    <button class="button" ng-click="logout()">
+                        <i class="icon ion-log-out"></i> Cerrar sesión actual
+                    </button>
+                    <a class="button" href="#/ini/config">
+                        <i class="icon ion-ios-gear"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

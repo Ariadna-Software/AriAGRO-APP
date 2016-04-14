@@ -1,4 +1,9 @@
-<ion-view view-title="AiGesMov - (c) Ariadna Software S.L.">
+<ion-view view-title="AJUSTES">
+    <ion-nav-buttons side="right">
+        <a class="button" href="#/ini/inicio">
+            <i class="icon ion-home"></i>
+        </a>
+    </ion-nav-buttons>
     <ion-content class="padding">
         <ion-list>
             <ion-item class="item-input item-stacked-label">
@@ -9,20 +14,11 @@
                 <span class="input-label"><strong>Número de app:</strong></span>
                 <input type="number" ng-model="config.numImage">
             </ion-item>
-            <ion-item class="item-toogle">
-                Buscar por nombre comercial
-                <label class="toggle toggle-positive">
-                    <input type="checkbox" ng-model="config.porNomComer">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </ion-item>
         </ion-list>
         <button class="button button-block" ng-click="setConfig()">
             Aceptar
         </button>
-        <a class="button button-block" href="#/tab/inicio">
+        <a class="button button-block" href="#/ini/login">
             Salir
         </a>
     </ion-content>

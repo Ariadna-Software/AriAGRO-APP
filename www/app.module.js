@@ -22,6 +22,8 @@
 			'ariAgroApp.datos',
 			'ariAgroApp.campos',
 			'ariAgroApp.anticipos',
-			'ariAgroApp.facturas'
+			'ariAgroApp.facturas',
+			'ariAgroApp.login',
+			'ariAgroApp.config'
 		]);
 })();

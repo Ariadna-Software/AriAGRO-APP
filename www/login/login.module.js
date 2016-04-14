@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('ariAgroApp.proveedores', [
+    angular.module('ariAgroApp.login', [
 
     ]);
 })();
