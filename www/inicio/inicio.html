@@ -1,0 +1,44 @@
+<ion-view view-title="INICIO">
+    <ion-nav-buttons side="right">
+        <a class="button" href="#/ini/inicio">
+            <i class="icon ion-home"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item class="item-divider text-center item-text-wrap">
+                <h2>Alzicoop Coop V.</h2>
+                <p>Campaña actual</p>
+            </ion-item>
+            <ion-item>
+                <p>Seleccione la opción que desee</p>
+            </ion-item>
+        </ion-list>    
+        <ion-list>
+            <ion-item  class="item-text-wrap" style="background-image:url('img/campanya2.jpg');background-size: cover;"  ng-click="goCampanya()">
+                <h2 style="color:black"><strong>CAMPAÑAS</strong></h2>
+                <span style="color:black">Acceda a la información de campañas anteriores</span>
+            </ion-item>
+            <ion-item class="item-text-wrap" style="background-image:url('img/datos2.jpg');background-size: cover;" ng-click="goDatos()">
+                <h2 style="color:black"><strong>DATOS</strong></h2>
+                <span style="color:black">Acceda a la información de sus datos personales</span>
+            </ion-item>
+            <ion-item class="item-text-wrap" style="background-image:url('img/campos2.jpg');background-size: cover;" ng-click="goCampos()">
+                <h2 style="color:black"><strong>CAMPOS</strong></h2>
+                <span style="color:black">Acceda a la información de sus campos y las entradas relacionadas con ellos</span>
+            </ion-item>
+            <ion-item class="item-text-wrap" style="background-image:url('img/anticipos2.jpg');background-size: cover;" ng-click="goAnticipos()">
+                <h2 style="color:black"><strong>ANTICIPOS Y LIQUIDACIONES</strong></h2>
+                <span style="color:black">Acceda a las facturas de anticipos y liquidaciones que le corresponden</span>
+            </ion-item>
+            <ion-item class="item-text-wrap" style="background-image:url('img/facturas2.jpg');background-size: cover;" ng-click="goFacturas()">
+                <h2 style="color:black"><strong>FACTURAS</strong></h2>
+                <span style="color:black">Acceda a las facturas emitidas en tienda, gasolinera o telefonía</span>
+            </ion-item>
+            <ion-item class="item-text-wrap" style="background-image:url('img/mensajes2.jpg');background-size: cover;">
+                <h2 style="color:black"><strong>MENSAJES</strong></h2>
+                <span style="color:black">Acceda a los mensajes que le hemos enviado</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

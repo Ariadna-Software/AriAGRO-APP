@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <title></title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/angular-chart.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+</head>
+
+<body ng-app="ariAgroApp">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-nav-bar class="bar-stable">
+        <!-- Provisionalmente inactivamos el botón back (navegarán con lo que le ofrezcamos en pantalla)
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    -->
+    </ion-nav-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <!-- your app's js -->
+    <!-- inject:js -->
+    <!-- Bootstrapping -->
+    <script src="app.module.js"></script>
+    <!-- Utilities -->
+    <script src="js/numeral.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?KEY=AIzaSyD3_kfo1nPFFiu_pl2NO2B7FctIy2mbnBI&amp;sensor=false"></script>
+    <script src="js/angular-messages.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/angular-chart.js"></script>
+    <script src="js/init.utilities.js"></script>
+    <!-- Reusable Blocks/Modules -->
+    <script src="blocks/router/router.module.js"></script>
+    <script src="blocks/router/router.helperProvider.js"></script>
+    <!-- core module -->
+    <script src="core/core.module.js"></script>
+    <script src="core/core.images.service.js"></script>
+    <script src="core/core.loader.service.js"></script>
+    <script src="core/core.lsfactory.service.js"></script>
+    <script src="core/core.user.service.js"></script>
+    <script src="core/core.config.service.js"></script>
+    <script src="core/core.nav.service.js"></script>
+    <script src="core/core.config.js"></script>
+    <!-- layout -->
+    <script src="layout/layout.module.js"></script>
+    <script src="layout/layout.route.js"></script>
+    <script src="layout/layout.controler.js"></script>
+    <!-- MENU - inicio -->
+    <script src="inicio/inicio.module.js"></script>
+    <script src="inicio/inicio.route.js"></script>
+    <script src="inicio/inicio.controler.js"></script>
+    <!-- MENU - campanya -->
+    <script src="campanya/campanya.module.js"></script>
+    <script src="campanya/campanya.route.js"></script>
+    <script src="campanya/campanya.controler.js"></script>
+    <!-- MENU - datos -->
+    <script src="datos/datos.module.js"></script>
+    <script src="datos/datos.route.js"></script>
+    <script src="datos/datos.controler.js"></script>
+    <!-- MENU - campos -->
+    <script src="campos/campos.module.js"></script>
+    <script src="campos/campos.route.js"></script>
+    <script src="campos/campos.controler.js"></script>
+    <!-- MENU - anticipos -->
+    <script src="anticipos/anticipos.module.js"></script>
+    <script src="anticipos/anticipos.route.js"></script>
+    <script src="anticipos/anticipos.controler.js"></script>
+    <!-- MENU - facturas -->
+    <script src="facturas/facturas.module.js"></script>
+    <script src="facturas/facturas.route.js"></script>
+    <script src="facturas/facturas.controler.js"></script>    
+    <!-- MENU - config -->
+    <script src="config/config.module.js"></script>
+    <script src="config/config.route.js"></script>
+    <script src="config/config.controler.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
