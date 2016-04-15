@@ -7,45 +7,29 @@
     <ion-content class="padding">
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
-                <h2>Alzicoop Coop V.</h2>
-                <p>Campaña actual</p>
+                <h2>{{empresa.nomempre}}</h2>
+                <p>{{campanya.nomempre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
                 Pulse en cualquier campo para ver el detalle de sus entradas
             </ion-item>
         </ion-list>
         <ion-list>
-            <ion-item class="item-text-wrap item-icon-right" href="/#/ini/camposd">
+            <ion-item collection-repeat="campo in campos" class="item-text-wrap item-icon-right" ng-click="selCampo(campo)">
                 <div>
-                    <strong>Variedad: </strong> NAVELINA
+                    <strong>CODIGO: </strong> {{campo.codcampo}}
+                    <strong>Variedad: </strong> {{campo.nomvarie}}
                 </div>
                 <div>
-                    <strong>Partida: </strong> El malpaso
+                    <strong>Partida: </strong> {{campo.nomparti}}
                 </div>
                 <div>
-                    <strong>Poligono: </strong> 15
-                    <strong>Parcela: </strong> 20
+                    <strong>Poligono: </strong> {{campo.poligono}}
+                    <strong>Parcela: </strong> {{campo.parcela}}
                 </div>
                 <div>
-                    <strong>Recintos: </strong> 2
-                    <strong>Kilos: </strong> 28
-                </div>
-                <i class="icon ion-chevron-right"></i>
-            </ion-item>
-            <ion-item class="item-text-wrap item-icon-right" href="/#/ini/camposd">
-                <div>
-                    <strong>Variedad: </strong> SATSUMA
-                </div>
-                <div>
-                    <strong>Partida: </strong> El malpaso
-                </div>
-                <div>
-                    <strong>Poligono: </strong> 15
-                    <strong>Parcela: </strong> 22
-                </div>
-                <div>
-                    <strong>Recintos: </strong> 1
-                    <strong>Kilos: </strong> 145
+                    <strong>Recintos: </strong> {{campo.recintos}}
+                    <strong>Kilos: </strong> {{campo.kilos}}
                 </div>
                 <i class="icon ion-chevron-right"></i>
             </ion-item>

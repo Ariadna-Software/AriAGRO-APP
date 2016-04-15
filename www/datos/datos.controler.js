@@ -23,7 +23,9 @@
         }
 
         $scope.goEdicion = function(){
-            $state.go('ini.datose');
+            // Provisonalmente desactivado
+            Loader.toggleLoadingWithMessage("Estamos trabajando en ello...");
+            // $state.go('ini.datose');
         }
 
         $scope.load();

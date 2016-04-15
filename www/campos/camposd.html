@@ -7,8 +7,8 @@
     <ion-content class="padding">
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
-                <h2>Alzicoop Coop V.</h2>
-                <p>Campaña actual</p>
+                <h2>{{empresa.nomempre}}</h2>
+                <p>{{campanya.nomempre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
                 Este el detalle de entradas del campo escogido
@@ -20,18 +20,19 @@
             </ion-item>
             <ion-item class="item-text-wrap">
                 <div>
-                    <strong>Variedad: </strong> NAVELINA
+                    <strong>CODIGO: </strong> {{campo.codcampo}}
+                    <strong>Variedad: </strong> {{campo.nomvarie}}
                 </div>
                 <div>
-                    <strong>Partida: </strong> El malpaso
+                    <strong>Partida: </strong> {{campo.nomparti}}
                 </div>
                 <div>
-                    <strong>Poligono: </strong> 15
-                    <strong>Parcela: </strong> 20
+                    <strong>Poligono: </strong> {{campo.poligono}}
+                    <strong>Parcela: </strong> {{campo.parcela}}
                 </div>
                 <div>
-                    <strong>Recintos: </strong> 2
-                    <strong>Kilos: </strong> 28
+                    <strong>Recintos: </strong> {{campo.recintos}}
+                    <strong>Kilos: </strong> {{campo.kilos}}
                 </div>
             </ion-item>
             <ion-item class="item-divider">
@@ -43,17 +44,11 @@
                 <div class="col col-20 text-right"><strong>Cajones</strong></div>
                 <div class="col col-20 text-right"><strong>Kilos</strong></div>
             </ion-item>
-            <ion-item class="row">
-                <div class="col col-20">01</div>
-                <div class="col col-40">06/02/2016</div>
-                <div class="col col-20 text-right">20</div>
-                <div class="col col-20 text-right">140.23</div>
-            </ion-item>
-            <ion-item class="row">
-                <div class="col col-20">02</div>
-                <div class="col col-40">05/02/2016</div>
-                <div class="col col-20 text-right">10</div>
-                <div class="col col-20 text-right">89.50</div>
+            <ion-item collection-repeat="entrada in campo.entradas" class="row">
+                <div class="col col-20">{{entrada.numalbar}}</div>
+                <div class="col col-40">{{entrada.fecalbar}}</div>
+                <div class="col col-20 text-right">{{entrada.numcajon}}</div>
+                <div class="col col-20 text-right">{{entrada.kilosnet}}</div>
             </ion-item>
         </ion-list>
     </ion-content>

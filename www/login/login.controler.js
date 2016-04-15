@@ -4,9 +4,9 @@
     angular.module('ariAgroApp.login')
         .controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory', 'EmpresaFactory'];
+    LoginCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory', 'EmpresaFactory', 'CampanyasFactory'];
 
-    function LoginCtrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory, EmpresaFactory) {
+    function LoginCtrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory, EmpresaFactory, CampanyasFactory) {
         $scope.hayErrores = false;
 
         $scope.loginData = {
@@ -61,6 +61,11 @@
                 EmpresaFactory.getEmpresaHttp().
                 success(function(data) {
                     EmpresaFactory.setEmpresa(data);
+                    // la campaña por defecto es la actual
+                    CampanyasFactory.setCampanya({
+                        nomempre: 'Campaña actual',
+                        ariagro: 'ariagro'
+                    });
                     $state.go('ini.inicio');
                 }).
                 error(function(err, statusCode) {

@@ -19,7 +19,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'campos/campos.html',
-                        controller: 'DatosCtrl'
+                        controller: 'CamposCtrl'
                     }
                 }
             }
@@ -30,7 +30,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'campos/camposd.html',
-                        controller: 'DatosCtrl'
+                        controller: 'CamposdCtrl'
                     }
                 }
             }
