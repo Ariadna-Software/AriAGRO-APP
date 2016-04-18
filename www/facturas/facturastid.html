@@ -7,11 +7,10 @@
     <ion-content class="padding">
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
-                <h2>Alzicoop Coop V.</h2>
-                <p>Campaña actual</p>
+                <h2>{{empresa.nomempre}}</h2>
             </ion-item>
             <ion-item class="item-text-wrap">
-                Este el detalle de entradas del campo escogido
+                Este es el detalle de factura escogida
             </ion-item>
         </ion-list>
         <ion-list>
@@ -20,15 +19,15 @@
             </ion-item>
             <ion-item class="item-text-wrap  item-icon-left">
                 <div>
-                    <strong>Numero: </strong> A-125666
-                    <strong>Fecha: </strong> 01/01/2016
+                    <strong>Numero: </strong> {{factura.numfactu}}
+                    <strong>Fecha: </strong> {{factura.fecfactu}}
                 </div>
                 <div>
-                    <strong>Base: </strong> 100
-                    <strong>IVA: </strong> 21
+                    <strong>Base: </strong> {{factura.bases}}
+                    <strong>IVA: </strong> {{factura.cuotas}}
                 </div>
                 <div>
-                    <strong>Total: </strong> 121
+                    <strong>Total: </strong> {{factura.totalfac}}
                 </div>
                 <i class="icon ion-bag"></i>
             </ion-item>
@@ -36,22 +35,16 @@
                 LINEAS
             </ion-item>
             <ion-item class="row row-header item-text-wrap">
-                <div class="col col-40"><strong>Concepto</strong></div>
+                <div class="col col-50"><strong>Concepto</strong></div>
                 <div class="col col-20 text-right"><strong>Unid</strong></div>
-                <div class="col col-20 text-right"><strong>Precio</strong></div>
-                <div class="col col-20 text-right"><strong>Importe</strong></div>
+                <!-- <div class="col col-20 text-right"><strong>Precio</strong></div> -->
+                <div class="col col-30 text-right"><strong>Importe</strong></div>
             </ion-item>
-            <ion-item class="row item-text-wrap">
-                <div class="col col-40">Bisulfato Sódico Garrafas de 2L (venta libre)</div>
-                <div class="col col-20 text-right">2</div>
-                <div class="col col-20 text-right">100</div>
-                <div class="col col-20 text-right">200</div>
-            </ion-item>
-            <ion-item class="row item-text-wrap">
-                <div class="col col-40">Cocacola Bote 33cl</div>
-                <div class="col col-20 text-right">1</div>
-                <div class="col col-20 text-right">1.30</div>
-                <div class="col col-20 text-right">1.30</div>
+            <ion-item collection-repeat="linea in factura.lineas" class="row item-text-wrap padding">
+                <div class="col col-50">{{linea.nomartic}}</div>
+                <div class="col col-20 text-right">{{linea.cantidad}}</div>
+                <!-- <div class="col col-20 text-right">{{linea.precioar}}</div> -->
+                <div class="col col-30 text-right">{{linea.importel}}</div>
             </ion-item>
         </ion-list>
     </ion-content>

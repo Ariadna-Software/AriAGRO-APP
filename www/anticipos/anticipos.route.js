@@ -30,7 +30,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'anticipos/anticiposd.html',
-                        controller: 'AnticiposCtrl'
+                        controller: 'AnticiposdCtrl'
                     }
                 }
             }

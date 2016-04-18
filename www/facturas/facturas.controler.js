@@ -4,86 +4,46 @@
     angular.module('ariAgroApp.facturas')
         .controller('FacturasCtrl', FacturasCtrl);
 
-    FacturasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory'];
+    FacturasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory', 'EmpresaFactory', 'FacturasFactory'];
 
-    function FacturasCtrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory) {
-        $scope.hayErrores = false;
-
-        $scope.loginData = {
-            login: "",
-            password: ""
-        };
-
-        $scope.version = "-.-.-";
-
+    function FacturasCtrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory, EmpresaFactory, FacturasFactory) {
         $scope.$on('$ionicView.enter', function(e) {
             $scope.load();
         });
 
-
         $scope.load = function() {
-            $scope.isUser = UserFactory.isUser();
-            $scope.user = UserFactory.getUser();
-            // controlar le versión con el plugin de cordova
-            $ionicPlatform.ready(function() {
-                try {
-                    cordova.getAppVersion(function(version) {
-                        $scope.version = version;
-                    });
-                } catch (e) {
+            $scope.user = UserFactory.userControl();
+            $scope.empresa = EmpresaFactory.getEmpresa();
+            $scope.facturasTienda = [];
+            $scope.numFacturasTienda = 0;
+            $scope.facturasTelefonia = [];
+            $scope.numFacturasTelefonia = 0;
+            $scope.facturasGasolinera = [];
+            $scope.numFacturasGasolinera = 0;
+            // por defecto el codsocio es igual al codclien
+            $scope.codclienTienda = $scope.user.codsocio;
+            $scope.codclienTelefonia = $scope.user.codsocio;
+            $scope.codclienGasolinera = $scope.user.codsocio;
+            // leemos la configuración.
+            if (ConfigFactory.getConfig().numApp == 1) {
 
-                }
-            });
-            var config = ConfigFactory.getConfig();
-            if (!config){
-                // si no hay configuración nos vamos a confg
-                Loader.toggleLoadingWithMessage("Debe configurar la aplicación.");
-                $state.go('tab.config');
+            } else {
+                $scope.cargarFacturasTienda($scope.codclienTienda);
+                $scope.cargarFacturasTelefonia($scope.codclienTelefonia);
+                $scope.cargarFacturasGasolinera($scope.codclienGasolinera);
             }
-            var numImage = 0;
-            if (config){
-                numImage = ConfigFactory.getConfig().numImage;
-            }
-            $scope.imageUrl = ImagesFactory.getImage(numImage);
-        }
+        };
 
-        // el login debe acceder a dos bases de datos distintas
-        // de anhí las llamadas encadenadas
-        $scope.login = function(form) {
-            if (!form.$valid) {
-                $scope.hayErrores = true;
-                return;
-            }
-            Loader.showLoading('Buscando usuario..');
-            UserFactory.login($scope.loginData).
+        $scope.cargarFacturasTienda = function(codclien) {
+            Loader.showLoading('Buscando facturas / tienda ...');
+            FacturasFactory.getFacturasTiendaHttp(codclien).
             success(function(data) {
                 Loader.hideLoading();
-                // hay que obtener el código de agente
-                var data1 = data; // guardamos los datos
-                UserFactory.getAgente($scope.loginData.login).
-                success(function(data) {
-                    if (data) {
-                        data1.codagent = data.codagent; // ponemos el agente
-                        data1.nomagent = data.nomagent;
-                        data1.codtraba = data.codtraba;
-                        UserFactory.setUser(data1);
-                        $scope.load();
-                        $state.go('tab.clientes');
-                    } else {
-                        Loader.toggleLoadingWithMessage("Login o password incorrectos");
-                        UserFactory.setUser(null);
-                        $scope.load();
-                    }
-                }).
-                error(function(err, statusCode) {
-                    Loader.hideLoading();
-                    if (err) {
-                        var msg = err || err.message;
-                        Loader.toggleLoadingWithMessage(msg);
-                    } else {
-                        Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
-                    }
-                });
+                for (var i = 0; i < data.length; i++) {
+                    data[i].fecfactu = moment(data[i].fecfactu).format('DD/MM/YYYY');
+                }
+                $scope.facturasTienda = data;
+                $scope.numFacturasTienda = data.length;
             }).
             error(function(err, statusCode) {
                 Loader.hideLoading();
@@ -94,23 +54,73 @@
                     Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
                 }
             });
+        };
+
+        $scope.selFacturasTienda = function() {
+            if ($scope.numFacturasTienda > 0) {
+                FacturasFactory.setFacturasTienda($scope.facturasTienda);
+                $state.go('ini.facturasti');
+            }
         }
 
-        $scope.logout = function() {
-            UserFactory.logout();
-            $scope.loginData = {
-                login: "",
-                password: ""
-            };
-            $scope.user = null;
-            $scope.isUser = false;
+        $scope.cargarFacturasTelefonia = function(codclien) {
+            Loader.showLoading('Buscando facturas / telefonia ...');
+            FacturasFactory.getFacturasTelefoniaHttp(codclien).
+            success(function(data) {
+                Loader.hideLoading();
+                for (var i = 0; i < data.length; i++) {
+                    data[i].fecfactu = moment(data[i].fecfactu).format('DD/MM/YYYY');
+                }
+                $scope.facturasTelefonia = data;
+                $scope.numFacturasTelefonia = data.length;
+            }).
+            error(function(err, statusCode) {
+                Loader.hideLoading();
+                if (err) {
+                    var msg = err || err.message;
+                    Loader.toggleLoadingWithMessage(msg);
+                } else {
+                    Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                }
+            });
+        };
+
+        $scope.selFacturasTelefonia = function() {
+            if ($scope.numFacturasTelefonia > 0) {
+                FacturasFactory.setFacturasTelefonia($scope.facturasTelefonia);
+                $state.go('ini.facturaste');
+            }
         }
 
-        $scope.goEdicion = function(){
-            $state.go('ini.datose');
+        $scope.cargarFacturasGasolinera = function(codclien) {
+            Loader.showLoading('Buscando facturas / gasolinera ...');
+            FacturasFactory.getFacturasGasolineraHttp(codclien).
+            success(function(data) {
+                Loader.hideLoading();
+                for (var i = 0; i < data.length; i++) {
+                    data[i].fecfactu = moment(data[i].fecfactu).format('DD/MM/YYYY');
+                }
+                $scope.facturasGasolinera = data;
+                $scope.numFacturasGasolinera = data.length;
+            }).
+            error(function(err, statusCode) {
+                Loader.hideLoading();
+                if (err) {
+                    var msg = err || err.message;
+                    Loader.toggleLoadingWithMessage(msg);
+                } else {
+                    Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                }
+            });
+        };
+
+        $scope.selFacturasGasolinera = function() {
+            if ($scope.numFacturasGasolinera > 0) {
+                FacturasFactory.setFacturasGasolinera($scope.facturasGasolinera);
+                $state.go('ini.facturasga');
+            }
         }
 
-        $scope.load();
     }
 
 })();

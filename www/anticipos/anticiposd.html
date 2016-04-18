@@ -7,8 +7,8 @@
     <ion-content class="padding">
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
-                <h2>Alzicoop Coop V.</h2>
-                <p>Campaña actual</p>
+                <h2>{{empresa.nomempre}}</h2>
+                <p>{{campanya.nomempre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
                 Este el detalle de entradas del campo escogido
@@ -16,25 +16,26 @@
         </ion-list>
         <ion-list>
             <ion-item class="item-divider">
-                ANTICIPO
+                {{anticipo.nomtipom}}
             </ion-item>
             <ion-item class="item-text-wrap item-icon-left">
                 <div>
-                    <strong>Tipo: </strong> ANTICIPO
+                    <strong>Tipo: </strong> {{anticipo.nomtipom}}
                 </div>
                 <div>
-                    <strong>Numero: </strong> A-125666
-                    <strong>Fecha: </strong> 01/01/2016
+                    <strong>Numero: </strong> {{anticipo.factura}}
+                    <strong>Fecha: </strong> {{anticipo.fecfactu}}
                 </div>
                 <div>
-                    <strong>Base: </strong> 100
-                    <strong>IVA: </strong> 21
-                    <strong>Retencion: </strong> 10
+                    <strong>Base: </strong> {{anticipo.baseimpo}}
+                    <strong>IVA: </strong> {{anticipo.imporiva}}
+                    <strong>Retencion: </strong> {{anticipo.impreten}}
                 </div>
                 <div>
-                    <strong>Total: </strong> 111
+                    <strong>Total: </strong> {{anticipo.totalfac}}
                 </div>
-                <i class="icon ion-android-checkbox-outline-blank"></i>
+                
+                <i class="icon" ng-class="{'ion-android-checkbox-outline': anticipo.codtipom == 'FAL', 'ion-android-checkbox-outline-blank': anticipo.codtipom == 'FAA'}"></i>
             </ion-item>
             <ion-item class="item-divider">
                 LINEAS
@@ -44,15 +45,10 @@
                 <div class="col col-25 text-right"><strong>Kilos</strong></div>
                 <div class="col col-25 text-right"><strong>Importe</strong></div>
             </ion-item>
-            <ion-item class="row">
-                <div class="col col-50">Navel</div>
-                <div class="col col-25 text-right">20</div>
-                <div class="col col-25 text-right">140.23</div>
-            </ion-item>
-            <ion-item class="row">
-                <div class="col col-50">Navelina</div>
-                <div class="col col-25 text-right">10</div>
-                <div class="col col-25 text-right">66.33</div>
+            <ion-item collection-repeat="linea in anticipo.lineas" class="row">
+                <div class="col col-50">{{linea.nomvarie}}</div>
+                <div class="col col-25 text-right">{{linea.kilosnet}}</div>
+                <div class="col col-25 text-right">{{linea.imporvar}}</div>
             </ion-item>
         </ion-list>
     </ion-content>

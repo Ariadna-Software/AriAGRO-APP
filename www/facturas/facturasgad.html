@@ -20,15 +20,15 @@
             </ion-item>
             <ion-item class="item-text-wrap  item-icon-left">
                 <div>
-                    <strong>Numero: </strong> A-125666
-                    <strong>Fecha: </strong> 01/01/2016
+                    <strong>Numero: </strong> {{factura.numfactu}}
+                    <strong>Fecha: </strong> {{factura.fecfactu}}
                 </div>
                 <div>
-                    <strong>Base: </strong> 100
-                    <strong>IVA: </strong> 21
+                    <strong>Base: </strong> {{factura.bases}}
+                    <strong>IVA: </strong> {{factura.cuotas}}
                 </div>
                 <div>
-                    <strong>Total: </strong> 121
+                    <strong>Total: </strong> {{factura.totalfac}}
                 </div>
                 <i class="icon ion-paintbucket"></i>
             </ion-item>
@@ -36,22 +36,15 @@
                 LINEAS
             </ion-item>
             <ion-item class="row row-header item-text-wrap">
-                <div class="col col-40"><strong>Concepto</strong></div>
+                <div class="col col-50"><strong>Concepto</strong></div>
                 <div class="col col-20 text-right"><strong>Unid</strong></div>
-                <div class="col col-20 text-right"><strong>Precio</strong></div>
-                <div class="col col-20 text-right"><strong>Importe</strong></div>
+                <div class="col col-30 text-right"><strong>Importe</strong></div>
             </ion-item>
-            <ion-item class="row item-text-wrap">
-                <div class="col col-40">Gasoil A</div>
-                <div class="col col-20 text-right">45</div>
-                <div class="col col-20 text-right">1.20</div>
-                <div class="col col-20 text-right">60.23</div>
-            </ion-item>
-            <ion-item class="row item-text-wrap">
-                <div class="col col-40">Gasoil B</div>
-                <div class="col col-20 text-right">1</div>
-                <div class="col col-20 text-right">1.30</div>
-                <div class="col col-20 text-right">1.30</div>
+            <ion-item collection-repeat="linea in factura.lineas" class="row item-text-wrap padding">
+                <div class="col col-50">{{linea.nomartic}}</div>
+                <div class="col col-20 text-right">{{linea.cantidad}}</div>
+                <!-- <div class="col col-20 text-right">{{linea.precioar}}</div> -->
+                <div class="col col-30 text-right">{{linea.implinea}}</div>
             </ion-item>
         </ion-list>
     </ion-content>

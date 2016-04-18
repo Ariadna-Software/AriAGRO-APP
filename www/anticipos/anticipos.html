@@ -32,7 +32,7 @@
                     <strong>Total: </strong> {{anticipo.totalfac}}
                 </div>
                 
-                <i class="icon ion-android-checkbox-outline-blank"></i>
+                <i class="icon" ng-class="{'ion-android-checkbox-outline': anticipo.codtipom == 'FAL', 'ion-android-checkbox-outline-blank': anticipo.codtipom == 'FAA'}"></i>
                 <i class="icon ion-chevron-right"></i>
             </ion-item>
         </ion-list>

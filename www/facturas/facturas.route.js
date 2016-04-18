@@ -30,7 +30,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'facturas/facturasti.html',
-                        controller: 'FacturasCtrl'
+                        controller: 'FacturasTiCtrl'
                     }
                 }
             }
@@ -41,7 +41,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'facturas/facturastid.html',
-                        controller: 'FacturasCtrl'
+                        controller: 'FacturasTidCtrl'
                     }
                 }
             }
@@ -52,7 +52,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'facturas/facturasga.html',
-                        controller: 'FacturasCtrl'
+                        controller: 'FacturasGaCtrl'
                     }
                 }
             }
@@ -63,7 +63,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'facturas/facturasgad.html',
-                        controller: 'FacturasCtrl'
+                        controller: 'FacturasGadCtrl'
                     }
                 }
             }
@@ -74,7 +74,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'facturas/facturaste.html',
-                        controller: 'FacturasCtrl'
+                        controller: 'FacturasTeCtrl'
                     }
                 }
             }
@@ -85,7 +85,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'facturas/facturasted.html',
-                        controller: 'FacturasCtrl'
+                        controller: 'FacturasTedCtrl'
                     }
                 }
             }

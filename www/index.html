@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * &apos;unsafe-inline&apos;; script-src * &apos;unsafe-inline&apos; &apos;unsafe-eval&apos;">
     <title></title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/angular-chart.css" rel="stylesheet">
@@ -62,6 +62,7 @@
     <script src="core/core.campanyas.service.js"></script>
     <script src="core/core.campos.service.js"></script>
     <script src="core/core.anticipos.service.js"></script>
+    <script src="core/core.facturas.service.js"></script>
     <!-- layout -->
     <script src="layout/layout.module.js"></script>
     <script src="layout/layout.route.js"></script>
@@ -87,10 +88,17 @@
     <script src="anticipos/anticipos.module.js"></script>
     <script src="anticipos/anticipos.route.js"></script>
     <script src="anticipos/anticipos.controler.js"></script>
+    <script src="anticipos/anticiposd.controler.js"></script>
     <!-- MENU - facturas -->
     <script src="facturas/facturas.module.js"></script>
     <script src="facturas/facturas.route.js"></script>
     <script src="facturas/facturas.controler.js"></script>
+    <script src="facturas/facturasti.controler.js"></script>
+    <script src="facturas/facturastid.controler.js"></script>
+    <script src="facturas/facturasga.controler.js"></script>
+    <script src="facturas/facturasgad.controler.js"></script>    
+    <script src="facturas/facturaste.controler.js"></script>
+    <script src="facturas/facturasted.controler.js"></script>    
     <!-- MENU - login -->
     <script src="login/login.module.js"></script>
     <script src="login/login.route.js"></script>

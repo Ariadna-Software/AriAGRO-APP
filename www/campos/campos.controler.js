@@ -42,7 +42,6 @@
             $state.go('ini.camposd');
         }
 
-        $scope.load();
     }
 
 })();

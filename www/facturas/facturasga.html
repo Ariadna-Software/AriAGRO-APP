@@ -7,45 +7,28 @@
     <ion-content class="padding">
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
-                <h2>Alzicoop Coop V.</h2>
-                <p>Campaña actual</p>
+                <h2>{{empresa.nomempre}}</h2>
             </ion-item>
             <ion-item class="item-text-wrap">
                 Pulse en cualquier factura para ver el detalle
             </ion-item>
         </ion-list>
         <ion-list>
-            <ion-item class="item-text-wrap  item-icon-left item-icon-right" href="/#/ini/facturasgad">
+            <ion-item collection-repeat="factura in facturas" class="item-text-wrap  item-icon-left item-icon-right" ng-click="selFactura(factura)">
                 <div>
-                    <strong>Numero: </strong> A-125666
-                    <strong>Fecha: </strong> 01/01/2016
+                    <strong>Numero: </strong> {{factura.numfactu}}
+                    <strong>Fecha: </strong> {{factura.fecfactu}}
                 </div>
                 <div>
-                    <strong>Base: </strong> 100
-                    <strong>IVA: </strong> 21
+                    <strong>Base: </strong> {{factura.bases}}
+                    <strong>IVA: </strong> {{factura.cuotas}}
                 </div>
                 <div>
-                    <strong>Total: </strong> 121
-                </div>
-                <i class="icon ion-paintbucket"></i>
-                <i class="icon ion-chevron-right"></i>
-            </ion-item>
-            <ion-item class="item-text-wrap  item-icon-left item-icon-right" href="/#/ini/facturasgad">
-                <div>
-                    <strong>Numero: </strong> F-78999
-                    <strong>Fecha: </strong> 01/01/2016
-                </div>
-                <div>
-                    <strong>Base: </strong> 200
-                    <strong>IVA: </strong> 42
-                </div>
-                <div>
-                    <strong>Total: </strong> 242
+                    <strong>Total: </strong> {{factura.totalfac}}
                 </div>
                 <i class="icon ion-paintbucket"></i>
                 <i class="icon ion-chevron-right"></i>
             </ion-item>
-
         </ion-list>
     </ion-content>
 </ion-view>
