@@ -37,6 +37,15 @@
                 Loader.hideLoading();
                 for (var i = 0; i < data.length; i++) {
                     data[i].fecfactu = moment(data[i].fecfactu).format('DD/MM/YYYY');
+                    data[i].bases = numeral(data[i].bases).format('0,0.00');
+                    data[i].cuotas = numeral(data[i].cuotas).format('0,0.00');
+                    data[i].totalfac = numeral(data[i].totalfac).format('0,0.00');
+                    for (var i2 = 0; i2 < data[i].lineas.length; i2++) {
+                        if (data[i].lineas[i2]) {
+                            data[i].lineas[i2].cantidad = numeral(data[i].lineas[i2].cantidad).format('0,0.00');
+                            data[i].lineas[i2].importel = numeral(data[i].lineas[i2].importel).format('0,0.00');
+                        }
+                    }
                 }
                 $scope.facturasTienda = data;
                 $scope.numFacturasTienda = data.length;
@@ -47,7 +56,7 @@
                     var msg = err || err.message;
                     Loader.toggleLoadingWithMessage(msg);
                 } else {
-                    Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                    Loader.toggleLoadingWithMessage("Error de conexión. Revise disponibilidad de datos y/o configuración");
                 }
             });
         };
@@ -66,6 +75,15 @@
                 Loader.hideLoading();
                 for (var i = 0; i < data.length; i++) {
                     data[i].fecfactu = moment(data[i].fecfactu).format('DD/MM/YYYY');
+                    data[i].bases = numeral(data[i].bases).format('0,0.00');
+                    data[i].cuotas = numeral(data[i].cuotas).format('0,0.00');
+                    data[i].totalfac = numeral(data[i].totalfac).format('0,0.00');
+                    for (var i2 = 0; i2 < data[i].lineas.length; i2++) {
+                        if (data[i].lineas[i2]) {
+                            data[i].lineas[i2].cantidad = numeral(data[i].lineas[i2].cantidad).format('0,0.00');
+                            data[i].lineas[i2].importel = numeral(data[i].lineas[i2].importel).format('0,0.00');
+                        }
+                    }                    
                 }
                 $scope.facturasTelefonia = data;
                 $scope.numFacturasTelefonia = data.length;
@@ -76,7 +94,7 @@
                     var msg = err || err.message;
                     Loader.toggleLoadingWithMessage(msg);
                 } else {
-                    Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                    Loader.toggleLoadingWithMessage("Error de conexión. Revise disponibilidad de datos y/o configuración");
                 }
             });
         };
@@ -95,6 +113,15 @@
                 Loader.hideLoading();
                 for (var i = 0; i < data.length; i++) {
                     data[i].fecfactu = moment(data[i].fecfactu).format('DD/MM/YYYY');
+                    data[i].bases = numeral(data[i].bases).format('0,0.00');
+                    data[i].cuotas = numeral(data[i].cuotas).format('0,0.00');
+                    data[i].totalfac = numeral(data[i].totalfac).format('0,0.00');
+                    for (var i2 = 0; i2 < data[i].lineas.length; i2++) {
+                        if (data[i].lineas[i2]) {
+                            data[i].lineas[i2].cantidad = numeral(data[i].lineas[i2].cantidad).format('0,0.00');
+                            data[i].lineas[i2].implinea = numeral(data[i].lineas[i2].implinea).format('0,0.00');
+                        }
+                    }
                 }
                 $scope.facturasGasolinera = data;
                 $scope.numFacturasGasolinera = data.length;
@@ -105,7 +132,7 @@
                     var msg = err || err.message;
                     Loader.toggleLoadingWithMessage(msg);
                 } else {
-                    Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                    Loader.toggleLoadingWithMessage("Error de conexión. Revise disponibilidad de datos y/o configuración");
                 }
             });
         };

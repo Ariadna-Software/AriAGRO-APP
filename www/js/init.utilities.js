@@ -9,7 +9,7 @@ numeral.language('es', {
     }
 });
 
-// switch between languages
+// // switch between languages
 numeral.language('es');
 
 // Own utilities

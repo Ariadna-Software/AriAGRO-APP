@@ -32,7 +32,7 @@
                     var msg = err || err.message;
                     Loader.toggleLoadingWithMessage(msg);
                 } else {
-                    Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                    Loader.toggleLoadingWithMessage("Error de conexión. Revise disponibilidad de datos y/o configuración");
                 }
             });
         }

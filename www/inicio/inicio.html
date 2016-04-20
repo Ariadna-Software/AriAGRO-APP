@@ -11,11 +11,48 @@
                 <p>{{campanya.nomresum}}</p>
                 <p>{{user.nomsocio}}</p>
             </ion-item>
-            <ion-item>
-                <p>Seleccione la opción que desee</p>
-            </ion-item>
         </ion-list>
         <ion-list>
+            <ion-item class="row">
+                <div class="col col-50 text-center" ng-click="goCampanya()">
+                    <img src="img/campanya3.png">
+                    <h2>CAMPAÑAS</h2>
+                </div>
+                <div class="col col-50 text-center" ng-click="goDatos()">
+                    <img src="img/datos3.png">
+                    <h2>DATOS</h2>
+                </div>
+            </ion-item>
+            <ion-item class="row">
+                <div class="col col-50 text-center" ng-click="goCampos()">
+                    <img src="img/campos3.png">
+                    <h2>CAMPOS</h2>
+                </div>
+                <div class="col col-50 text-center" ng-click="goAnticipos()">
+                    <img src="img/anticipos3.png">
+                    <h2>ANTICIPOS / LIQUIDACIONES</h2>
+                </div>
+            </ion-item>
+            <ion-item class="row">
+                <div class="col col-50 text-center" ng-click="goFacturas()">
+                    <img src="img/facturas3.png">
+                    <h2>FACTURAS</h2>
+                </div>
+                <div class="col col-50 text-center" ng-click="goMensajes()">
+                    <img src="img/mensajes3.png">
+                    <h2>MENSAJES</h2>
+                </div>
+            </ion-item>
+            <ion-item class="row">
+                <div class="col col-50 text-center">
+
+                </div>
+                <div class="col col-50 text-center" ng-click="goLogin()">
+                    <img src="img/login3.png">
+                    <h2>LOGIN / AJUSTES</h2>
+                </div>
+            </ion-item>            
+            <!--
             <ion-item  class="item-text-wrap" style="background-image:url('img/campanya2.jpg');background-size: cover;"  ng-click="goCampanya()">
                 <h2 style="color:black"><strong>CAMPAÑAS</strong></h2>
                 <span style="color:black">Acceda a la información de campañas anteriores</span>
@@ -41,5 +78,6 @@
                 <span style="color:black">Acceda a los mensajes que le hemos enviado</span>
             </ion-item>
         </ion-list>
+        -->
     </ion-content>
 </ion-view>
