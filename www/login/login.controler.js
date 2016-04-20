@@ -63,10 +63,24 @@
                     EmpresaFactory.setEmpresa(data);
                     // la campaña por defecto es la actual
                     CampanyasFactory.setCampanya({
-                        nomempre: 'Campaña actual',
+                        nomresum: 'Campaña actual',
                         ariagro: 'ariagro'
                     });
-                    $state.go('ini.inicio');
+                    UserFactory.codigos(data1.codsocio).
+                    success(function(data) {
+                        data1.codigos = data;
+                        UserFactory.setUser(data1);
+                        $state.go('ini.inicio');
+                    }).
+                    error(function(err, statusCode) {
+                        Loader.hideLoading();
+                        if (err) {
+                            var msg = err || err.message;
+                            Loader.toggleLoadingWithMessage(msg);
+                        } else {
+                            Loader.toggleLoadingWithMessage("Error de conexión. Revise configuración");
+                        }
+                    });
                 }).
                 error(function(err, statusCode) {
                     Loader.hideLoading();

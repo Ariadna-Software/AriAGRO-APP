@@ -11,13 +11,12 @@
         if (!config) {
             config = {
                 urlApi: "",
-                porNomComer: false
+                numApp: 0
             }
         }
-        if (!config.porNomComer){
-            config.porNomComer = false;
-        }
+        
         $scope.config = config;
+
         $scope.setConfig = function() {
             ConfigFactory.setConfig($scope.config);
             $state.go('ini.inicio');

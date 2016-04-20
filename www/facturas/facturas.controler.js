@@ -21,17 +21,13 @@
             $scope.facturasGasolinera = [];
             $scope.numFacturasGasolinera = 0;
             // por defecto el codsocio es igual al codclien
-            $scope.codclienTienda = $scope.user.codsocio;
-            $scope.codclienTelefonia = $scope.user.codsocio;
-            $scope.codclienGasolinera = $scope.user.codsocio;
-            // leemos la configuración.
-            if (ConfigFactory.getConfig().numApp == 1) {
+            $scope.codclienTienda = $scope.user.codigos.codtienda;
+            $scope.codclienTelefonia = $scope.user.codigos.codtelefonia;
+            $scope.codclienGasolinera = $scope.user.codigos.codgasolinera;
 
-            } else {
-                $scope.cargarFacturasTienda($scope.codclienTienda);
-                $scope.cargarFacturasTelefonia($scope.codclienTelefonia);
-                $scope.cargarFacturasGasolinera($scope.codclienGasolinera);
-            }
+            $scope.cargarFacturasTienda($scope.codclienTienda);
+            $scope.cargarFacturasTelefonia($scope.codclienTelefonia);
+            $scope.cargarFacturasGasolinera($scope.codclienGasolinera);
         };
 
         $scope.cargarFacturasTienda = function(codclien) {

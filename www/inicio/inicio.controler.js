@@ -13,9 +13,10 @@
         });
 
         $scope.load = function() {
-            $scope.user = UserFactory.userControl();
+            //$scope.user = UserFactory.userControl();
             $scope.campanya = CampanyasFactory.getCampanya();
             $scope.empresa = EmpresaFactory.getEmpresa();
+            $scope.user = UserFactory.getUser();
         };
 
         $scope.goCampanya = function(){

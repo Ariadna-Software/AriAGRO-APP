@@ -17,6 +17,13 @@
                     }
                 });
             },
+            codigos: function(codsocio) {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/usuarios/codigos', {
+                    params: {
+                        "codsocio": codsocio
+                    }
+                });
+            },
             isUser: function() {
                 return this.getUser() === null ? false : true;
             },
@@ -37,11 +44,13 @@
                     // si no hay configuración nos vamos a confg
                     Loader.toggleLoadingWithMessage("Debe configurar la aplicación.");
                     $state.go('ini.config');
+                    return null;
                 }
                 if (!this.isUser()) {
                     // No hay un usuario logado
                     Loader.toggleLoadingWithMessage("Debe entrar con un usuario");
                     $state.go('ini.login');
+                    return null;
                 }
                 var user = this.getUser();
                 return user;

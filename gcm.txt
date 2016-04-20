@@ -1,0 +1,12 @@
+----------------------------------------------
+GCM del proyecto
+----------------------------------------------
+ID del proyecto: ariagro-1285
+Nombre del proyecto: AriAGRO
+Número del proyecto: 595606821946
+
+-----------------------------------------------
+API KEY del proyecto
+-----------------------------------------------
+Nombre: AriAGRO Server Api
+Clave: AIzaSyCOQ1uG9cBBZcXiHBMxKi1P9dJ1erzzE2c

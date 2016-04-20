@@ -20,11 +20,13 @@
             $scope.cargarCampanyas();
         };
 
-        $scope.campanyaClic = function(nomempre, ariagro) {
-            var campanya = {
-                nomempre: nomempre,
-                ariagro: ariagro
-            };
+        $scope.campanyaClic = function(campanya) {
+            if (!campanya){
+                campanya = {
+                    "nomresum":"Campaña actual",
+                    "ariagro":"ariagro"
+                }
+            }
             CampanyasFactory.setCampanya(campanya);
             // ahora si que nos vamos a inicio
             $state.go('ini.inicio');

@@ -8,18 +8,19 @@
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
                 <h2>{{empresa.nomempre}}</h2>
-                <p>{{campanya.nomempre}}</p>
+                <p>{{campanya.nomresum}}</p>
+                <p>{{user.nomsocio}}</p>
             </ion-item>
             <ion-item>
                 <p>Seleccione la campaña de la que desea ver los datos</p>
             </ion-item>
         </ion-list>
         <ion-list>
-            <ion-item class="item-text-wrap" ng-click="campanyaClic('Campaña actual','ariagro')">
+            <ion-item class="item-text-wrap" ng-click="campanyaClic()">
                 <h2>Campaña actual</h2>
             </ion-item>        
-            <ion-item collection-repeat="campanya in campanyas" class="item-text-wrap" ng-click="campanyaClic(campanya.nomempre,campanya.ariagro)">
-                <h2>{{campanya.nomempre}}</h2>
+            <ion-item collection-repeat="campanya in campanyas" class="item-text-wrap" ng-click="campanyaClic(campanya)">
+                <h2>{{campanya.nomresum}}</h2>
             </ion-item>
         </ion-list>
     </ion-content>
