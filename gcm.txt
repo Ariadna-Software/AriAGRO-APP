@@ -10,3 +10,29 @@ API KEY del proyecto
 -----------------------------------------------
 Nombre: AriAGRO Server Api
 Clave: AIzaSyCOQ1uG9cBBZcXiHBMxKi1P9dJ1erzzE2c
+
+----------------- Instalación del plugin push
+ionic plugin add phonegap-plugin-push --variable SENDER_ID="595606821946"
+
+----------------- En package.json incluir
+"cordovaPlugins": [
+    {
+      "variables": {
+        "SENDER_ID": "595606821946"
+      },
+      "locator": "phonegap-plugin-push"
+    }
+  ]
+
+
+
+DEV-037f8bc9-10b4-49ba-ba92-8997979ab31f
+
+API-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjNTRmMGM1YS1hMGUxLTQ0NDMtOTdlNS00MjAwNjUzOWU2ZDIifQ.mXipaXBowM1iYnwZADCcI20x4neuh0UQALgiRZx0yDY
+
+
+curl -X POST -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjNTRmMGM1YS1hMGUxLTQ0NDMtOTdlNS00MjAwNjUzOWU2ZDIifQ.mXipaXBowM1iYnwZADCcI20x4neuh0UQALgiRZx0yDY" -H "Content-Type: application/json" -d '{"tokens": ["DEV-84a66644-6db0-4184-a1d2-41e2569468a9"],"profile": "fake_push_profile","notification": {"message": "Hello World!"}}' "https://api.ionic.io/push/notifications"
+
+curl -X POST -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjNTRmMGM1YS1hMGUxLTQ0NDMtOTdlNS00MjAwNjUzOWU2ZDIifQ.mXipaXBowM1iYnwZADCcI20x4neuh0UQALgiRZx0yDY" -H "Content-Type: application/json" -d '{}' "https://api.ionic.io/push/notifications"
+
+curl -X POST -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJjNTRmMGM1YS1hMGUxLTQ0NDMtOTdlNS00MjAwNjUzOWU2ZDIifQ.mXipaXBowM1iYnwZADCcI20x4neuh0UQALgiRZx0yDY" -H "Content-Type: application/json" -d '{"tokens": ["DEV-84a66644-6db0-4184-a1d2-41e2569468a9"]}' "https://api.ionic.io/push/notifications"

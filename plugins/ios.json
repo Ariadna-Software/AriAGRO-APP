@@ -57,6 +57,12 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
         }
     },
     "dependent_plugins": {}
