@@ -3,26 +3,28 @@
     angular.module('ariAgroApp.core')
         .factory('UserFactory', UserFactory);
 
-    UserFactory.$inject = ['$http','$state', 'LSFactory', 'ConfigFactory', 'Loader'];
+    UserFactory.$inject = ['$http', '$state', 'LSFactory', 'ConfigFactory', 'Loader'];
 
     function UserFactory($http, $state, LSFactory, ConfigFactory, Loader) {
         var userKey = "user";
 
         var UserAPI = {
             login: function(params) {
-                return $http.get(ConfigFactory.getConfig().urlApi + '/api/usuarios/login', {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/usupush/login', {
                     params: {
                         "login": params.login,
                         "password": params.password
                     }
                 });
             },
-            codigos: function(codsocio) {
-                return $http.get(ConfigFactory.getConfig().urlApi + '/api/usuarios/codigos', {
-                    params: {
-                        "codsocio": codsocio
-                    }
-                });
+            put: function(user) {
+                var data = {
+                    usuarioPush: user
+                };
+                return $http.put(ConfigFactory.getConfig().urlApi + '/api/usupush/' + user.usuarioPushId, data);
+            },
+            getParametros: function() {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/parametros/0');
             },
             isUser: function() {
                 return this.getUser() === null ? false : true;

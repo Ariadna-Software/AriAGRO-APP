@@ -16,7 +16,7 @@
             $scope.campanya = CampanyasFactory.getCampanya();
             $scope.empresa = EmpresaFactory.getEmpresa();
             $scope.campos = [];
-            $scope.cargarCampos($scope.user.codsocio, $scope.campanya.ariagro);
+            $scope.cargarCampos($scope.user.ariagroId, $scope.campanya.ariagro);
         };
 
         $scope.cargarCampos = function(codsocio, campanya){

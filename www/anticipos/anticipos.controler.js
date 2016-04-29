@@ -16,7 +16,7 @@
             $scope.empresa = EmpresaFactory.getEmpresa();
             $scope.campanya = CampanyasFactory.getCampanya();
             $scope.anticipos = [];
-            $scope.cargarAnticipos($scope.user.codsocio, $scope.campanya.ariagro);
+            $scope.cargarAnticipos($scope.user.ariagroId, $scope.campanya.ariagro);
         };
 
         $scope.campanyaClic = function(nomempre, ariagro) {

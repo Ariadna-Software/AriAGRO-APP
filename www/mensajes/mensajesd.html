@@ -1,4 +1,4 @@
-<ion-view view-title="FACTURAS TELEFONIA">
+<ion-view view-title="MENSAJE - DETALLE">
     <ion-nav-buttons side="right">
         <a class="button" href="#/ini/inicio">
             <i class="icon ion-home"></i>
@@ -11,24 +11,23 @@
                 <p>{{user.nombre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
-                Pulse en cualquier factura para ver el detalle
+                Este el detalle del mensaje escogido
             </ion-item>
         </ion-list>
         <ion-list>
-            <ion-item collection-repeat="factura in facturas" class="item-text-wrap  item-icon-left item-icon-right" ng-click="selFactura(factura)">
+            <ion-item class="item-divider">
+                MENSAJE
+            </ion-item>
+            <ion-item class="item-text-wrap">
                 <div>
-                    <strong>Numero: </strong> {{factura.numfactu}}
-                    <strong>Fecha: </strong> {{factura.fecfactu}}
+                    <strong>Fecha: </strong> {{mensaje.fecha}}
                 </div>
                 <div>
-                    <strong>Base: </strong> {{factura.bases}}
-                    <strong>IVA: </strong> {{factura.cuotas}}
+                    <strong>Asunto: </strong> {{mensaje.asunto}}
                 </div>
                 <div>
-                    <strong>Total: </strong> {{factura.totalfac}}
+                    <strong>Texto: </strong> {{mensaje.texto}}
                 </div>
-                <i class="icon ion-android-phone-portrait"></i>
-                <i class="icon ion-chevron-right"></i>
             </ion-item>
         </ion-list>
     </ion-content>

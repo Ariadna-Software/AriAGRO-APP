@@ -21,9 +21,9 @@
             $scope.facturasGasolinera = [];
             $scope.numFacturasGasolinera = 0;
             // por defecto el codsocio es igual al codclien
-            $scope.codclienTienda = $scope.user.codigos.codtienda;
-            $scope.codclienTelefonia = $scope.user.codigos.codtelefonia;
-            $scope.codclienGasolinera = $scope.user.codigos.codgasolinera;
+            $scope.codclienTienda = $scope.user.tiendaId;
+            $scope.codclienTelefonia = $scope.user.telefoniaId;
+            $scope.codclienGasolinera = $scope.user.gasolineraId;
 
             $scope.cargarFacturasTienda($scope.codclienTienda);
             $scope.cargarFacturasTelefonia($scope.codclienTelefonia);

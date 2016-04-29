@@ -14,6 +14,9 @@
                 <span class="input-label"><strong>Número de app:</strong></span>
                 <input type="number" ng-model="config.numApp">
             </ion-item>
+            <ion-item class="item-input item-text-wrap">
+                <span><strong>PlayerId:</strong></span>{{user.playerId}}
+            </ion-item>
         </ion-list>
         <button class="button button-block" ng-click="setConfig()">
             Aceptar
@@ -21,8 +24,5 @@
         <a class="button button-block" href="#/ini/login">
             Salir
         </a>
-        <button class="button button-block" ng-click="setPush()">
-            PUSH TEST
-        </button>
     </ion-content>
 </ion-view>
