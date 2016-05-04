@@ -4,61 +4,31 @@
         "uninstalled": []
     },
     "config_munge": {
-        "files": {
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Console\"><param name=\"ios-package\" value=\"CDVLogger\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SplashScreen\"><param name=\"ios-package\" value=\"CDVSplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "framework": {
-                "parents": {
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ]
-                }
-            }
-        }
+        "files": {}
     },
     "installed_plugins": {
         "com.ionic.keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.ariAgroApp"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.ariAgroApp"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.ariAgroApp"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.ariAgroApp"
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
         },
         "cordova-plugin-app-version": {
-            "PACKAGE_NAME": "com.ionicframework.ariAgroApp"
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
         },
-        "com.phonegap.plugins.PushPlugin": {
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ariadnasw.ariagro"
         },
         "onesignal-cordova-plugin": {

@@ -7,6 +7,9 @@
     FacturasCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory', 'EmpresaFactory', 'FacturasFactory'];
 
     function FacturasCtrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory, EmpresaFactory, FacturasFactory) {
+
+        $scope.data = {};
+
         $scope.$on('$ionicView.enter', function(e) {
             $scope.load();
         });
@@ -24,15 +27,24 @@
             $scope.codclienTienda = $scope.user.tiendaId;
             $scope.codclienTelefonia = $scope.user.telefoniaId;
             $scope.codclienGasolinera = $scope.user.gasolineraId;
+            // years for select (5 back current year)
+            $scope.years = [];
+            var currentDate = new Date();
+            var currentYear = currentDate.getFullYear();
+            $scope.data.selectedYear = currentYear;
+            $scope.years.push(currentYear);
+            for (var i = 1; i < 5; i++) {
+                $scope.years.push(currentYear - i);
+            }
 
-            $scope.cargarFacturasTienda($scope.codclienTienda);
-            $scope.cargarFacturasTelefonia($scope.codclienTelefonia);
-            $scope.cargarFacturasGasolinera($scope.codclienGasolinera);
+            $scope.cargarFacturasTienda($scope.codclienTienda, $scope.data.selectedYear);
+            $scope.cargarFacturasTelefonia($scope.codclienTelefonia, $scope.data.selectedYear);
+            $scope.cargarFacturasGasolinera($scope.codclienGasolinera, $scope.data.selectedYear);
         };
 
-        $scope.cargarFacturasTienda = function(codclien) {
+        $scope.cargarFacturasTienda = function(codclien, year) {
             Loader.showLoading('Buscando facturas / tienda ...');
-            FacturasFactory.getFacturasTiendaHttp(codclien).
+            FacturasFactory.getFacturasTiendaHttp(codclien, year).
             success(function(data) {
                 Loader.hideLoading();
                 for (var i = 0; i < data.length; i++) {
@@ -68,9 +80,9 @@
             }
         }
 
-        $scope.cargarFacturasTelefonia = function(codclien) {
+        $scope.cargarFacturasTelefonia = function(codclien, year) {
             Loader.showLoading('Buscando facturas / telefonia ...');
-            FacturasFactory.getFacturasTelefoniaHttp(codclien).
+            FacturasFactory.getFacturasTelefoniaHttp(codclien, year).
             success(function(data) {
                 Loader.hideLoading();
                 for (var i = 0; i < data.length; i++) {
@@ -83,7 +95,7 @@
                             data[i].lineas[i2].cantidad = numeral(data[i].lineas[i2].cantidad).format('0,0.00');
                             data[i].lineas[i2].importel = numeral(data[i].lineas[i2].importel).format('0,0.00');
                         }
-                    }                    
+                    }
                 }
                 $scope.facturasTelefonia = data;
                 $scope.numFacturasTelefonia = data.length;
@@ -106,9 +118,9 @@
             }
         }
 
-        $scope.cargarFacturasGasolinera = function(codclien) {
+        $scope.cargarFacturasGasolinera = function(codclien, year) {
             Loader.showLoading('Buscando facturas / gasolinera ...');
-            FacturasFactory.getFacturasGasolineraHttp(codclien).
+            FacturasFactory.getFacturasGasolineraHttp(codclien, year).
             success(function(data) {
                 Loader.hideLoading();
                 for (var i = 0; i < data.length; i++) {
@@ -118,6 +130,7 @@
                     data[i].totalfac = numeral(data[i].totalfac).format('0,0.00');
                     for (var i2 = 0; i2 < data[i].lineas.length; i2++) {
                         if (data[i].lineas[i2]) {
+                            data[i].lineas[i2].fecalbar = moment(data[i].lineas[i2].fecalbar).format('DD/MM/YYYY');
                             data[i].lineas[i2].cantidad = numeral(data[i].lineas[i2].cantidad).format('0,0.00');
                             data[i].lineas[i2].implinea = numeral(data[i].lineas[i2].implinea).format('0,0.00');
                         }
@@ -142,7 +155,13 @@
                 FacturasFactory.setFacturasGasolinera($scope.facturasGasolinera);
                 $state.go('ini.facturasga');
             }
-        }
+        };
+
+        $scope.yearChanged = function() {
+            $scope.cargarFacturasTienda($scope.codclienTienda, $scope.data.selectedYear);
+            $scope.cargarFacturasTelefonia($scope.codclienTelefonia, $scope.data.selectedYear);
+            $scope.cargarFacturasGasolinera($scope.codclienGasolinera, $scope.data.selectedYear);
+        };
 
     }
 

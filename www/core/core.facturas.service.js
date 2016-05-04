@@ -20,8 +20,8 @@
             setFacturasTienda: function(facturas) {
                 return LSFactory.set('facstienda', facturas);
             },
-            getFacturasTiendaHttp: function(codclien) {
-                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/tienda/' + codclien);
+            getFacturasTiendaHttp: function(codclien, year) {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/tienda/' + codclien + '/' + year);
             },
             getFacturaTelefonia: function() {
                 return LSFactory.get('factelefonia');
@@ -35,8 +35,8 @@
             setFacturasTelefonia: function(facturas) {
                 return LSFactory.set('facstelefonia', facturas);
             },
-            getFacturasTelefoniaHttp: function(codclien) {
-                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/telefonia/' + codclien);
+            getFacturasTelefoniaHttp: function(codclien, year) {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/telefonia/' + codclien + '/' + year);
             },
             getFacturaGasolinera: function() {
                 return LSFactory.get('facgasolinera');
@@ -50,8 +50,8 @@
             setFacturasGasolinera: function(facturas) {
                 return LSFactory.set('facsgasolinera', facturas);
             },
-            getFacturasGasolineraHttp: function(codclien) {
-                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/gasolinera/' + codclien);
+            getFacturasGasolineraHttp: function(codclien, year) {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/gasolinera/' + codclien + '/' + year);
             }
 
         };

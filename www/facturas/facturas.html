@@ -18,8 +18,8 @@
                     <div class="input-label">
                         Elija año de facturación
                     </div>
-                    <select>
-                        <option selected>Todos</option>
+                    <select ng-model="data.selectedYear" ng-change="yearChanged()">
+                        <option ng-repeat="year in years" >{{year}}</option>
                     </select>
                 </label>
             </ion-item>

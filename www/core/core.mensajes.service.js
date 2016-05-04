@@ -27,7 +27,15 @@
             },
             getMensajeHttp: function(mensajeId) {
                 return $http.get(ConfigFactory.getConfig().urlApi + '/api/mensajes/' + mensajeId);
-            }
+            },
+            putMensaje: function(usuarioPushId, mensajeId, fecha) {
+                var data = {
+                    usuarioPushId: usuarioPushId,
+                    mensajeId: mensajeId,
+                    fecha: fecha
+                };
+                return $http.put(ConfigFactory.getConfig().urlApi + '/api/mensajes/usuario/' + usuarioPushId, data);
+            },
         };
         return MENSAJE;
     }

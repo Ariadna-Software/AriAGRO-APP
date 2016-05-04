@@ -12,28 +12,66 @@
                 <p>{{user.nombre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
-                Pulse en cualquier campo para ver el detalle de sus entradas
+                Despliegue la variedad para ver los campos. Pulse en cualquier campo para ver el detalle de sus entradas.
             </ion-item>
         </ion-list>
         <ion-list>
-            <ion-item collection-repeat="campo in campos" class="item-text-wrap item-icon-right" ng-click="selCampo(campo)">
-                <div>
-                    <strong>CODIGO: </strong> {{campo.codcampo}}
-                    <strong>Variedad: </strong> {{campo.nomvarie}}
-                </div>
-                <div>
-                    <strong>Partida: </strong> {{campo.nomparti}}
-                </div>
-                <div>
-                    <strong>Poligono: </strong> {{campo.poligono}}
-                    <strong>Parcela: </strong> {{campo.parcela}}
-                </div>
-                <div>
-                    <strong>Recintos: </strong> {{campo.recintos}}
-                    <strong>Kilos: </strong> {{campo.kilos}}
-                </div>
-                <i class="icon ion-chevron-right"></i>
-            </ion-item>
+            <div ng-repeat="variedad in variedades">
+                <ion-item class="item-stable" ng-click="toggleGroup(variedad)" ng-class="{active: isGroupShown(variedad)}">
+                    <h2><i class="icon" ng-class="isGroupShown(variedad) ? 'ion-minus' : 'ion-plus'"></i> {{variedad.nomvarie}} </h2> 
+                    Kilos recolectados: {{variedad.numkilos}}
+                </ion-item>
+                <ion-item class="item-accordion item-text-wrap item-icon-right" ng-repeat="campo in variedad.campos" ng-show="isGroupShown(variedad)" ng-click="selCampo(campo)">
+                    <div>
+                        <strong>CODIGO: </strong> {{campo.codcampo}}
+                        <strong>Variedad: </strong> {{campo.nomvarie}}
+                    </div>
+                    <div>
+                        <strong>Partida: </strong> {{campo.nomparti}}
+                    </div>
+                    <div>
+                        <strong>Poligono: </strong> {{campo.poligono}}
+                        <strong>Parcela: </strong> {{campo.parcela}}
+                    </div>
+                    <div>
+                        <strong>Recintos: </strong> {{campo.recintos}}
+                        <strong>Kilos: </strong> {{campo.kilos}}
+                    </div>
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </div>
         </ion-list>
+        <!--
+        <ion-list>
+            <div collection-repeat="variedad in variedades" >
+                <ion-item class="item-text-wrap item-icon-right">
+                    <div>
+                        <strong>Variedad: </strong> {{variedad.nomvarie}}
+                    </div>
+                    <div>
+                        <strong>Kilos: </strong> {{variedad.numkilos}}
+                    </div>
+                </ion-item>
+                <ion-item collection-repeat="campo in variedades.campos" class="item-text-wrap item-icon-right" ng-click="selCampo(campo)">
+                    <div>
+                        <strong>CODIGO: </strong> {{campo.codcampo}}
+                        <strong>Variedad: </strong> {{campo.nomvarie}}
+                    </div>
+                    <div>
+                        <strong>Partida: </strong> {{campo.nomparti}}
+                    </div>
+                    <div>
+                        <strong>Poligono: </strong> {{campo.poligono}}
+                        <strong>Parcela: </strong> {{campo.parcela}}
+                    </div>
+                    <div>
+                        <strong>Recintos: </strong> {{campo.recintos}}
+                        <strong>Kilos: </strong> {{campo.kilos}}
+                    </div>
+                    <i class="icon ion-chevron-right"></i>
+                </ion-item>
+            </div>
+        </ion-list>
+        -->
     </ion-content>
 </ion-view>

@@ -15,16 +15,22 @@
             $scope.user = UserFactory.userControl();
             $scope.campanya = CampanyasFactory.getCampanya();
             $scope.empresa = EmpresaFactory.getEmpresa();
-            $scope.campos = [];
+            $scope.variedades = [];
             $scope.cargarCampos($scope.user.ariagroId, $scope.campanya.ariagro);
         };
 
-        $scope.cargarCampos = function(codsocio, campanya){
+        $scope.cargarCampos = function(codsocio, campanya) {
             Loader.showLoading('Buscando campos...');
             CamposFactory.getCamposHttp(codsocio, campanya).
             success(function(data) {
                 Loader.hideLoading();
-                $scope.campos = data;
+                for (var i = 0; i < data.length; i++) {
+                    data[i].numkilos = numeral(data[i].numkilos).format('0,0');
+                    for (var i2 = 0; i2 < data[i].campos.length; i2++) {
+                        data[i].campos[i2].kilos = numeral(data[i].campos[i2].kilos).format('0,0');
+                    }
+                }
+                $scope.variedades = data;
             }).
             error(function(err, statusCode) {
                 Loader.hideLoading();
@@ -37,10 +43,22 @@
             });
         }
 
-        $scope.selCampo = function(campo){
+        $scope.selCampo = function(campo) {
             CamposFactory.setCampo(campo);
             $state.go('ini.camposd');
-        }
+        };
+
+        $scope.toggleGroup = function(group) {
+            if ($scope.isGroupShown(group)) {
+                $scope.shownGroup = null;
+            } else {
+                $scope.shownGroup = group;
+            }
+        };
+
+        $scope.isGroupShown = function(group) {
+            return $scope.shownGroup === group;
+        };
 
     }
 

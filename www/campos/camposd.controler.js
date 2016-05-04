@@ -16,8 +16,10 @@
             $scope.campanya = CampanyasFactory.getCampanya();
             $scope.empresa = EmpresaFactory.getEmpresa();
             $scope.campo = CamposFactory.getCampo();
-            for (var i = 0; i < $scope.campo.entradas.length; i++){
-                $scope.campo.entradas[i].fecalbar = moment( $scope.campo.entradas[i].fecalbar).format('DD/MM/YYYY');
+            for (var i = 0; i < $scope.campo.entradas.length; i++) {
+                $scope.campo.entradas[i].numcajon = numeral($scope.campo.entradas[i].numcajon).format('0,0');
+                $scope.campo.entradas[i].kilosnet = numeral($scope.campo.entradas[i].kilosnet).format('0,0');
+                $scope.campo.entradas[i].fecalbar = moment($scope.campo.entradas[i].fecalbar).format('DD/MM/YYYY');
             }
         };
 

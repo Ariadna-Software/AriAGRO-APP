@@ -8,34 +8,27 @@
     },
     "installed_plugins": {
         "com.ionic.keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "cordova-plugin-app-version": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.ionicframework.ionictabsariAgroAppangularstyle429395"
-        },
-        "phonegap-plugin-push": {
-            "SENDER_ID": "595606821946",
             "PACKAGE_NAME": "com.ariadnasw.ariagro"
         },
-        "com.phonegap.plugins.PushPlugin": {
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ariadnasw.ariagro"
+        },
+        "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ariadnasw.ariagro"
         },
         "onesignal-cordova-plugin": {

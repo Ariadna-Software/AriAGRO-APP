@@ -16,7 +16,7 @@
             </ion-item>
         </ion-list>
         <ion-list>
-            <ion-item collection-repeat="mensaje in mensajes" class="item-text-wrap item-icon-right" ng-click="selMensaje(mensaje)">
+            <ion-item collection-repeat="mensaje in mensajes" class="item-text-wrap item-icon-right" ng-click="selMensaje(mensaje)" ng-class="{assertive: mensaje.estado == 'ENVIADO'}">
                 <div>
                     <strong>Fecha: </strong> {{mensaje.fecha}}
                 </div>
