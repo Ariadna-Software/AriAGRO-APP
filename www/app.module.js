@@ -25,6 +25,7 @@
 			'ariAgroApp.facturas',
 			'ariAgroApp.login',
 			'ariAgroApp.config',
-			'ariAgroApp.mensajes'
+			'ariAgroApp.mensajes',
+			'ariAgroApp.central'
 		]);
 })();

@@ -17,6 +17,7 @@
 
         $scope.load = function() {
             //$scope.user = UserFactory.userControl();
+            $scope.comprobarCentral();
             $scope.campanya = CampanyasFactory.getCampanya();
             $scope.empresa = EmpresaFactory.getEmpresa();
             $scope.user = UserFactory.getUser();
@@ -44,7 +45,7 @@
                         }
                     });
                 };
-                if (config.appId && config.gcm) {
+                if (config && config.appId && config.gcm) {
                     try {
                         // Registro OneSignal
                         window.plugins.OneSignal.init(config.appId, { googleProjectNumber: config.gcm },
@@ -80,13 +81,21 @@
         };
 
         $scope.buscaMensajes = function() {
+            if (!ConfigFactory.getConfig()) {
+                // si no hay configuración 
+                $state.go('ini.central');
+                return;
+            }
             // obtener el número de mensajes no leidos
-            Loader.showLoading('Buscando mensajes...');
-
+            if (!$scope.user) {
+                Loader.toggleLoadingWithMessage("Ningún usuario activo");
+                $state.go('ini.login');
+                return;
+            }
             MensajesFactory.getMensajesHttp($scope.user).
             success(function(data) {
                 Loader.hideLoading();
-                 $scope.mensajes.num = 0;
+                $scope.mensajes.num = 0;
                 for (var i = 0; i < data.length; i++) {
                     if (data[i].estado != 'LEIDO') $scope.mensajes.num++;
                 }
@@ -100,6 +109,17 @@
                     Loader.toggleLoadingWithMessage("Error de conexión. Revise disponibilidad de datos y/o configuración");
                 }
             });
+        }
+
+        $scope.comprobarCentral = function() {
+            var config = ConfigFactory.getConfig();
+            if (!config) {
+                // si no hay configuración 
+                $state.go('ini.central');
+                return;
+            } else {
+                return;
+            }
         }
 
         $scope.goCampanya = function() {

@@ -19,13 +19,18 @@
             $scope.cargarMensajes($scope.user);
         };
 
-        $scope.cargarMensajes = function(user){
+        $scope.cargarMensajes = function(user) {
+            if (!$scope.user) {
+                Loader.toggleLoadingWithMessage("Ningún usuario activo");
+                $state.go('ini.login');
+                return;
+            }
             Loader.showLoading('Buscando mensajes...');
             MensajesFactory.getMensajesHttp(user).
             success(function(data) {
                 Loader.hideLoading();
                 $scope.numNoLeidos = 0;
-                for (var i = 0; i < data.length; i++){
+                for (var i = 0; i < data.length; i++) {
                     data[i].fecha = moment(data[i].fecha).format('DD/MM/YYYY HH:mm:ss');
                     if (data[i].estado != 'LEIDO') $scope.numNoLeidos++;
                 }
@@ -42,7 +47,7 @@
             });
         }
 
-        $scope.selMensaje = function(mensaje){
+        $scope.selMensaje = function(mensaje) {
             MensajesFactory.setMensaje(mensaje);
             $state.go('ini.mensajesd');
         }

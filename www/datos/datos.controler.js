@@ -24,7 +24,7 @@
 
         $scope.goEdicion = function(){
             // Provisonalmente desactivado
-            Loader.toggleLoadingWithMessage("Estamos trabajando en ello...");
+            Loader.toggleLoadingWithMessage("Servicio no disponible...");
             // $state.go('ini.datose');
         }
 

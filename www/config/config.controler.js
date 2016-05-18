@@ -23,6 +23,12 @@
             ConfigFactory.setConfig($scope.config);
             $state.go('ini.inicio');
         }
+
+        $scope.setConfig2 = function() {
+            ConfigFactory.setConfig(null);
+            UserFactory.setUser(null);
+            $state.go('ini.inicio');
+        }        
     }
 
 })();

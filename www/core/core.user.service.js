@@ -17,6 +17,9 @@
                     }
                 });
             },
+            central: function(params) {
+                return $http.get('http://ariagro.myariadna.com:9901/api/parametros/' + params.numCoope);
+            },
             put: function(user) {
                 var data = {
                     usuarioPush: user
