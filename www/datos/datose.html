@@ -19,59 +19,65 @@
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Nombre:</span>
-                    <input type="text" placeholder="Garcia Pellon, Juan Carlos">
+                    <input type="text" ng-model="user.nombre">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">NIF:</span>
-                    <input type="text" placeholder="12234555S">
+                    <input type="text" ng-model="user.nif">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Dirección:</span>
-                    <input type="text" placeholder="Calle del Pato N.23">
+                    <input type="text" ng-model="user.direccion">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Cod. Postal:</span>
-                    <input type="text" placeholder="46111">
+                    <input type="text" ng-model="user.codPostal">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Población:</span>
-                    <input type="text" placeholder="Valencia">
+                    <input type="text" ng-model="user.poblacion">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Provincia:</span>
-                    <input type="text" placeholder="Valencia">
+                    <input type="text" ng-model="user.provincia">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Teléfono (1):</span>
-                    <input type="text" placeholder="96252525">
+                    <input type="text" ng-model="user.telefono1">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
                     <span class="input-label">Teléfono (2):</span>
-                    <input type="text" placeholder="6665555">
+                    <input type="text" ng-model="user.telefono2">
                 </div>
             </ion-item>
             <ion-item class="item-input item-stacked-label">
                 <div>
+                    <span class="input-label">Correo:</span>
+                    <input type="email" ng-model="user.email">
+                </div>
+            </ion-item>            
+            <ion-item class="item-input item-stacked-label">
+                <div>
                     <span class="input-label">IBAN:</span>
-                    <input type="text" placeholder="ES45666789999">
+                    <input type="text" ng-model="user.iban">
                 </div>
             </ion-item>
         </ion-list>
-        <button class="button button-block">
+        <button class="button button-block" ng-click="cambioDatos()">
             ENVIAR
         </button>
     </ion-content>

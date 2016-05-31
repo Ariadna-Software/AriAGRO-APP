@@ -34,6 +34,17 @@
                     }
                 }
             }
+        },{
+            state: 'ini.mensajesc',
+            config: {
+                url: '/mensajesc',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'mensajes/mensajesc.html',
+                        controller: 'MensajescCtrl'
+                    }
+                }
+            }
         }];
     }
 })();

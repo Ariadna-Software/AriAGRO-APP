@@ -52,6 +52,10 @@
             $state.go('ini.mensajesd');
         }
 
+        $scope.crearMensaje = function(){
+            $state.go('ini.mensajesc');
+        }
+
     }
 
 })();

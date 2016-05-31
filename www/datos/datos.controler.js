@@ -22,10 +22,8 @@
             $scope.user = UserFactory.userControl();
         }
 
-        $scope.goEdicion = function(){
-            // Provisonalmente desactivado
-            Loader.toggleLoadingWithMessage("Servicio no disponible...");
-            // $state.go('ini.datose');
+        $scope.goEdicion = function() {
+            $state.go('ini.datose');
         }
 
         $scope.load();

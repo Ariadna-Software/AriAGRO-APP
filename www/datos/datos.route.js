@@ -30,7 +30,7 @@
                 views: {
                     'menuContent': {
                         templateUrl: 'datos/datose.html',
-                        controller: 'DatosCtrl'
+                        controller: 'DatoseCtrl'
                     }
                 }
             }

@@ -1,0 +1,36 @@
+<ion-view view-title="ENVIAR MENSAJE">
+    <ion-nav-buttons side="right">
+        <a class="button" href="#/ini/inicio">
+            <i class="icon ion-home"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item class="item-divider text-center item-text-wrap">
+                <h2>{{empresa.nomempre}}</h2>
+                <p>{{user.nombre}}</p>
+            </ion-item>
+            <ion-item class="item-text-wrap">
+                Escriba el mensaje que desea hacernos llegar y pulse el botón enviar.
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item class="item-divider">
+                MENSAJE
+            </ion-item>
+            <form name="mensForm" novalidate="">
+
+                <ion-item class="item-input">
+                    <textarea rows="10" name="observac" ng-model="correo.texto" placeholder="Escriba aquí el texto de su mensaje"></textarea>
+                </ion-item>
+                <ion-item>
+                    <div class="text-center">
+                        <button class="button" ng-click="enviarMensaje(mensForm)">
+                            <i class="icon ion-ios-email"></i> Enviar
+                        </button>
+                    </div>
+                </ion-item>
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-view>

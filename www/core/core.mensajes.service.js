@@ -36,6 +36,12 @@
                 };
                 return $http.put(ConfigFactory.getConfig().urlApi + '/api/mensajes/usuario/' + usuarioPushId, data);
             },
+            postCorreo: function(correo){
+                var data = {
+                    correo: correo
+                };
+                return $http.post(ConfigFactory.getConfig().urlApi + '/api/mensajes/correo', data);
+            }
         };
         return MENSAJE;
     }
