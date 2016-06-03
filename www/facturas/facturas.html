@@ -8,6 +8,7 @@
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
                 <h2>{{empresa.nomempre}}</h2>
+                <p>{{campanya.nomresum}}</p>
                 <p>{{user.nombre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
@@ -42,5 +43,11 @@
                 <span class="badge badge-positive">{{numFacturasTelefonia}}</span>
             </ion-item>
         </ion-list>
+        <ion-list>
+            <ion-item class="item-text-wrap item-icon-left" ng-click="selFacturasTratamientos()">
+                <i class="icon ion-ios-flower"></i> ADV
+                <span class="badge badge-positive">{{numFacturasTratamientos}}</span>
+            </ion-item>
+        </ion-list>        
     </ion-content>
 </ion-view>

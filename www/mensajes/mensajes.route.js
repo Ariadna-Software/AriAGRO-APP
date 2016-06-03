@@ -8,7 +8,7 @@
     appRun.$inject = ['routerHelper'];
 
     function appRun(routerHelper) {
-        routerHelper.configureStates(getStates(), '/ini/inicio');
+        routerHelper.configureStates(getStates(), '');
     }
 
     function getStates() {

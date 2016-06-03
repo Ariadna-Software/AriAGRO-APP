@@ -1,0 +1,28 @@
+<ion-view view-title="INICIO">
+    <ion-nav-buttons side="right">
+        <a class="button" href="#/ini/inicio">
+            <i class="icon ion-home"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item class="item-divider text-center item-text-wrap">
+                <h2>{{empresa.nomempre}}</h2>
+                <p>{{user.nombre}}</p>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item class="item-thumbnail-left item-text-wrap" ng-click="goMensajes()">
+                <img src="img/mensajes4.png">
+                <h2>MENSAJES</h2>
+                <span ng-hide="mensajes.num==0 " class="badge badge-assertive ">{{mensajes.num}}</span>
+                <p>Acceda a sus mensajes</p>
+            </ion-item>
+            <ion-item class="item-thumbnail-left item-text-wrap" ng-click="goLogin() ">
+                <img src="img/login4.png ">
+                <h2>LOGIN / AJUSTES</h2>
+                <p>Acceda a sus datos de entrada y ajustes</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

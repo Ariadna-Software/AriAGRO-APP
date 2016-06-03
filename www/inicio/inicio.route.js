@@ -31,6 +31,17 @@
                     }
                 }
             }
+        }, {
+            state: 'ini.inicio2',
+            config: {
+                url: '/inicio2',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'inicio/inicio2.html',
+                        controller: 'Inicio2Ctrl'
+                    }
+                }
+            }
         }];
     }
 })();

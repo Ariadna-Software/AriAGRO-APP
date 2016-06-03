@@ -8,6 +8,7 @@
         <ion-list>
             <ion-item class="item-divider text-center item-text-wrap">
                 <h2>{{empresa.nomempre}}</h2>
+                <p>{{campanya.nomresum}}</p>
                 <p>{{user.nombre}}</p>
             </ion-item>
             <ion-item class="item-text-wrap">
@@ -30,7 +31,7 @@
                 <div>
                     <strong>Total: </strong> {{factura.totalfac}}
                 </div>
-                <i class="icon ion-paintbucket"></i>
+                <i class="icon ion-ios-flower"></i>
             </ion-item>
             <ion-item class="item-divider">
                 LINEAS
@@ -41,10 +42,10 @@
                 <div class="col col-30 text-right"><strong>Importe</strong></div>
             </ion-item>
             <ion-item collection-repeat="linea in factura.lineas" class="row item-text-wrap padding">
-                <div class="col col-50">({{linea.fecalbar}}) {{linea.nomartic}}</div>
+                <div class="col col-50">{{linea.nomartic}}</div>
                 <div class="col col-20 text-right">{{linea.cantidad}}</div>
                 <!-- <div class="col col-20 text-right">{{linea.precioar}}</div> -->
-                <div class="col col-30 text-right">{{linea.implinea}}</div>
+                <div class="col col-30 text-right">{{linea.importel}}</div>
             </ion-item>
         </ion-list>
     </ion-content>

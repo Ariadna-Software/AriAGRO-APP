@@ -2,11 +2,11 @@
     'use strict';
 
     angular.module('ariAgroApp.inicio')
-        .controller('InicioCtrl', InicioCtrl);
+        .controller('Inicio2Ctrl', Inicio2Ctrl);
 
-    InicioCtrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory', 'CampanyasFactory', 'EmpresaFactory', 'MensajesFactory'];
+    Inicio2Ctrl.$inject = ['$rootScope', '$scope', '$state', '$ionicPlatform', 'UserFactory', 'Loader', 'ImagesFactory', 'ConfigFactory', 'CampanyasFactory', 'EmpresaFactory', 'MensajesFactory'];
 
-    function InicioCtrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory, CampanyasFactory, EmpresaFactory, MensajesFactory) {
+    function Inicio2Ctrl($rootScope, $scope, $state, $ionicPlatform, UserFactory, Loader, ImagesFactory, ConfigFactory, CampanyasFactory, EmpresaFactory, MensajesFactory) {
 
         $scope.$on('$ionicView.enter', function(e) {
             $scope.mensajes = {
@@ -118,12 +118,6 @@
                 $state.go('ini.central');
                 return;
             } else {
-                $scope.user = UserFactory.getUser();
-                if ($scope.user && $scope.user.soloMensajes == 1 && $state.is('ini.inicio')){
-                    // solo mensajes
-                    $rootScope.soloMensajes = true;
-                    $state.go('ini.inicio2')
-                }
                 return;
             }
 

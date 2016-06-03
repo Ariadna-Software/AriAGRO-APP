@@ -52,6 +52,21 @@
             },
             getFacturasGasolineraHttp: function(codclien, year) {
                 return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/gasolinera/' + codclien + '/' + year);
+            },
+            getFacturaTratamientos: function() {
+                return LSFactory.get('factratamientos');
+            },
+            setFacturaTratamientos: function(factura) {
+                return LSFactory.set('factratamientos', factura);
+            },
+            getFacturasTratamientos: function() {
+                return LSFactory.get('facstratamientos');
+            },
+            setFacturasTratamientos: function(facturas) {
+                return LSFactory.set('facstratamientos', facturas);
+            },
+            getFacturasTratamientosHttp: function(codclien, year, codsocio, campanya) {
+                return $http.get(ConfigFactory.getConfig().urlApi + '/api/facturas/tratamientos/' + codclien + '/' + year + '/' + codsocio + '/' + campanya);
             }
 
         };

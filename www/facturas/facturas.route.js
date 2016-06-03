@@ -67,7 +67,7 @@
                     }
                 }
             }
-        },,{
+        },{
             state: 'ini.facturaste',
             config: {
                 url: '/facturaste',
@@ -86,6 +86,28 @@
                     'menuContent': {
                         templateUrl: 'facturas/facturasted.html',
                         controller: 'FacturasTedCtrl'
+                    }
+                }
+            }
+        },{
+            state: 'ini.facturastr',
+            config: {
+                url: '/facturastr',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'facturas/facturastr.html',
+                        controller: 'FacturasTrCtrl'
+                    }
+                }
+            }
+        },{
+            state: 'ini.facturastrd',
+            config: {
+                url: '/facturastrd',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'facturas/facturastrd.html',
+                        controller: 'FacturasTrdCtrl'
                     }
                 }
             }
