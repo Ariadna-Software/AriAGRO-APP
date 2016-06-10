@@ -209,7 +209,6 @@
             $scope.cargarFacturasTienda($scope.codclienTienda, $scope.data.selectedYear);
             $scope.cargarFacturasTelefonia($scope.codclienTelefonia, $scope.data.selectedYear);
             $scope.cargarFacturasGasolinera($scope.codclienGasolinera, $scope.data.selectedYear);
-            $scope.cargarFacturasTratamientos($scope.codclienTratamientos, $scope.data.selectedYear);
             $scope.cargarFacturasTratamientos($scope.codclienTratamientos, $scope.data.selectedYear, $scope.codclienTratamientos, $scope.campanya.ariagro);
         };
 
